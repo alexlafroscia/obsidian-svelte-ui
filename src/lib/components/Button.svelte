@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { ButtonComponent } from 'obsidian';
+	import { ButtonComponent, type IconName } from 'obsidian';
 
 	import ExposeContainerElement from '$lib/utils/ExposeContainerElement.svelte';
 	import ExposeText from '$lib/utils/ExposeText.svelte';
@@ -17,6 +17,7 @@
 		class?: string;
 		cta?: boolean;
 		disabled?: boolean;
+		icon?: IconName;
 		onClick?: OnClickCallback;
 		warning?: boolean;
 	}
@@ -26,6 +27,7 @@
 		class: classNames,
 		cta = false,
 		disabled = false,
+		icon,
 		onClick,
 		warning = false
 	}: Props = $props();
@@ -52,10 +54,11 @@
 	});
 
 	bindMethodArgumentsToProps(() => buttonInstance, {
-		setDisabled: () => disabled,
 		onClick: () => onClick,
+		setButtonText: () => name,
 		setClass: () => classNames,
-		setButtonText: () => name
+		setDisabled: () => disabled,
+		setIcon: () => icon
 	});
 </script>
 

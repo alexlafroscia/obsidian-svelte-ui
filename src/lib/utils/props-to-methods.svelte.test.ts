@@ -45,6 +45,8 @@ test('bindMethodsToBooleanProps', () => {
 		let foo = $state(false);
 		let bar = $state(false);
 
+		let onCleanup = vi.fn();
+
 		let component = {
 			onFoo: vi.fn(),
 			onBar: vi.fn()
@@ -52,23 +54,32 @@ test('bindMethodsToBooleanProps', () => {
 
 		bindMethodsToBooleanProps(() => component, {
 			onFoo: () => foo,
-			onBar: () => bar
+			onBar: [() => bar, (c) => onCleanup(c)]
 		});
 		flushSync();
 
 		expect(component.onFoo).not.toHaveBeenCalled();
 		expect(component.onBar).not.toHaveBeenCalled();
+		expect(onCleanup).not.toHaveBeenCalled();
 
 		foo = true;
 		flushSync();
 
 		expect(component.onFoo).toHaveBeenCalled();
 		expect(component.onBar).not.toHaveBeenCalled();
+		expect(onCleanup).not.toHaveBeenCalled();
 
 		bar = true;
 		flushSync();
 
 		expect(component.onBar).toHaveBeenCalled();
+		expect(onCleanup).not.toHaveBeenCalled();
+
+		bar = false;
+		flushSync();
+
+		expect(onCleanup).toHaveBeenCalledTimes(1);
+		expect(onCleanup).toHaveBeenCalledWith(component);
 	});
 
 	cleanup();

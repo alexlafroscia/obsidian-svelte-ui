@@ -8,22 +8,43 @@ type MethodArgGetters<T> = {
 	[K in keyof T as T[K] extends (...args: any[]) => unknown ? K : never]?: MethodArgGetter<T[K]>;
 };
 
+type BooleanBinding<T> = ValueGetter<boolean> | [ValueGetter<boolean>, (component: T) => void];
+
 /**
  * Calls the given method on the component when the produced value is `true`
  *
- * Used to bind a boolean property to a method call on an object
+ * Used to bind a boolean property to a method call on an object.
+ *
+ * Each value can also be a tuple of `[valueGetter, cleanupCallback]`, where
+ * `callback` receives the component and is invoked when
  */
 export function bindMethodsToBooleanProps<
 	Method extends string,
 	T extends Record<Method, () => unknown>
->(getComponent: () => T | undefined, config: Record<Method, ValueGetter<boolean>>) {
-	const entries = Object.entries<ValueGetter<boolean>>(config);
+>(getComponent: () => T | undefined, config: Record<Method, BooleanBinding<T>>) {
+	const entries = Object.entries(config) as Array<[Method, BooleanBinding<T>]>;
 
-	for (const [methodName, retreiveValue] of entries) {
+	for (const [methodName, binding] of entries) {
+		let retreiveValue: () => boolean;
+		let cleanupCallback: (component: T) => void;
+
+		if (Array.isArray(binding)) {
+			[retreiveValue, cleanupCallback] = binding;
+		} else {
+			retreiveValue = binding;
+			cleanupCallback = () => {};
+		}
+
 		bindPropToMethod(getComponent, retreiveValue, (c, v) => {
 			if (v) {
-				c[methodName as Method]();
+				c[methodName]();
 			}
+
+			return () => {
+				if (v) {
+					cleanupCallback(c);
+				}
+			};
 		});
 	}
 }

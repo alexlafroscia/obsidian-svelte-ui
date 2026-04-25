@@ -40,8 +40,15 @@
 	});
 
 	bindMethodsToBooleanProps(() => buttonInstance, {
-		setCta: () => cta,
-		setWarning: () => warning
+		setCta: [() => cta, (c) => c.removeCta()],
+		setWarning: [
+			() => warning,
+			(c) => {
+				// No public API to remove warning, but this is the
+				// class that it adds under-the-hood
+				c.buttonEl.removeClass('mod-warning');
+			}
+		]
 	});
 
 	bindMethodArgumentsToProps(() => buttonInstance, {

@@ -31,6 +31,9 @@
 			"svelte": "./dist/index.js"
 		}
 	},
+	"dependencies": {
+		"svelte-imperative": "^4.0.0"
+	},
 	"peerDependencies": {
 		"obsidian": "^1.12.3",
 		"svelte": "^5.0.0"

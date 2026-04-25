@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      svelte-imperative:
+        specifier: ^4.0.0
+        version: 4.0.0(svelte@5.55.5)
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^7.0.1
@@ -634,6 +638,11 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
+
+  svelte-imperative@4.0.0:
+    resolution: {integrity: sha512-Yf039OsjcJh7PUrSzBlr/nIuZthKQkzpoBl1LOSS3XdARqiuvXDF5gz1Qdbl3b8ibNj/6tJ8g9VAszLri3scJw==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   svelte2tsx@0.7.53:
     resolution: {integrity: sha512-ljVSwmnYRDHRm8+7ICP6QoAN7U7vgOFfPBLN6T745YWNYqRRSzHxlrzUVqMjYls2Un8MzJissfziy/38e6Deeg==}
@@ -1296,6 +1305,10 @@ snapshots:
       typescript: 6.0.3
     transitivePeerDependencies:
       - picomatch
+
+  svelte-imperative@4.0.0(svelte@5.55.5):
+    dependencies:
+      svelte: 5.55.5
 
   svelte2tsx@0.7.53(svelte@5.55.5)(typescript@6.0.3):
     dependencies:

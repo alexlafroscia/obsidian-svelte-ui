@@ -64,6 +64,8 @@
 
 <ExposeContainerElement bind:containerEl />
 
-<ExposeText bind:contents={name}>
-	{@render children?.()}
-</ExposeText>
+{#if children}
+	<ExposeText bind:contents={name}>
+		{@render children()}
+	</ExposeText>
+{/if}

@@ -5,60 +5,50 @@
 	import ExposeContainerElement from '$lib/utils/ExposeContainerElement.svelte';
 	import ExposeText from '$lib/utils/ExposeText.svelte';
 
+	import {
+		bindMethodsToBooleanProps,
+		bindMethodArgumentsToProps
+	} from '$lib/utils/props-to-methods.svelte';
+
 	type OnClickCallback = Parameters<ButtonComponent['onClick']>[0];
 
 	interface Props {
 		children?: Snippet;
+		class?: string;
 		cta?: boolean;
 		disabled?: boolean;
 		onClick?: OnClickCallback;
 		warning?: boolean;
-		class?: string;
 	}
 
-	let { children, cta = false, disabled = false, onClick, warning }: Props = $props();
+	let {
+		children,
+		class: classNames,
+		cta = false,
+		disabled = false,
+		onClick,
+		warning = false
+	}: Props = $props();
 
 	let containerEl: HTMLElement | null | undefined = $state();
-	let buttonInstance: ButtonComponent | undefined = $state();
-
 	let name: string | undefined = $state();
 
-	$effect(() => {
+	let buttonInstance = $derived.by(() => {
 		if (containerEl) {
-			buttonInstance = new ButtonComponent(containerEl);
+			return new ButtonComponent(containerEl);
 		}
 	});
 
-	$effect(() => {
-		if (typeof name !== 'undefined') {
-			buttonInstance?.setButtonText(name);
-		}
+	bindMethodsToBooleanProps(() => buttonInstance, {
+		setCta: () => cta,
+		setWarning: () => warning
 	});
 
-	$effect(() => {
-		if (cta) {
-			buttonInstance?.setCta();
-
-			return () => {
-				return buttonInstance?.removeCta();
-			};
-		}
-	});
-
-	$effect(() => {
-		buttonInstance?.setDisabled(disabled);
-	});
-
-	$effect(() => {
-		if (onClick) {
-			buttonInstance?.onClick(onClick);
-		}
-	});
-
-	$effect(() => {
-		if (warning) {
-			buttonInstance?.setWarning();
-		}
+	bindMethodArgumentsToProps(() => buttonInstance, {
+		setDisabled: () => disabled,
+		onClick: () => onClick,
+		setClass: () => classNames,
+		setButtonText: () => name
 	});
 </script>
 

@@ -10,6 +10,7 @@ export { default as Secret } from './components/Secret.svelte';
 export { default as Slider } from './components/Slider.svelte';
 export { default as Text } from './components/Text.svelte';
 export { default as TextArea } from './components/TextArea.svelte';
+export { default as Toggle } from './components/Toggle.svelte';
 
 export { setTooltipAttachment as setTooltip } from './attachments/set-tooltip.svelte';
 

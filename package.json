@@ -62,6 +62,9 @@
 	"keywords": [
 		"svelte"
 	],
+	"repository": {
+		"url": "https://github.com/alexlafroscia/obsidian-svelte-ui"
+	},
 	"publishConfig": {
 		"provenance": true
 	},

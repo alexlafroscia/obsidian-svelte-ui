@@ -31,6 +31,12 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
+      - name: Ensure modern `npm` exists
+        run: |
+          npm --version
+          npm install -g npm
+          npm --version
+
       - run: pnpm install --frozen-lockfile
 
       - name: Create Release PR or Publish

@@ -1,65 +1,132 @@
-# Svelte library
+# obsidian-svelte-ui
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+Svelte 5 components and utilities for building [Obsidian](https://obsidian.md) plugins.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install obsidian-svelte-ui
+# or
+pnpm add obsidian-svelte-ui
 ```
 
-To recreate this project with the same configuration:
+Requires `obsidian ^1.12.3` and `svelte ^5.0.0` as peer dependencies.
 
-```sh
-# recreate this project
-pnpm dlx sv@0.15.1 create --template library --types ts --add prettier vitest="usages:unit" --install pnpm ./obsidian-svelte-ui
+## Components
+
+### `Button`
+
+Wraps Obsidian's `ButtonComponent` class as a Svelte component.
+
+```svelte
+<script>
+	import { Button } from 'obsidian-svelte-ui';
+</script>
+
+<Button onClick={() => console.log('clicked')}>Click me</Button>
 ```
 
-## Developing
+**Props**
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+| Prop       | Type                        | Default | Description                                |
+| ---------- | --------------------------- | ------- | ------------------------------------------ |
+| `children` | `Snippet`                   | —       | Button label text (rendered as plain text) |
+| `class`    | `string`                    | —       | Additional CSS class                       |
+| `cta`      | `boolean`                   | `false` | Apply call-to-action styling               |
+| `disabled` | `boolean`                   | `false` | Disable the button                         |
+| `icon`     | `IconName`                  | —       | Obsidian icon to display                   |
+| `onClick`  | `(evt: MouseEvent) => void` | —       | Click handler                              |
+| `warning`  | `boolean`                   | `false` | Apply warning styling                      |
 
-```sh
-npm run dev
+The button is rendered into the DOM by Obsidian's `ButtonComponent`, so it respects Obsidian's theming and styling conventions automatically.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+---
+
+### `Modal`
+
+Wraps Obsidian's `Modal` class as a Svelte component. The modal opens when the component mounts and closes when it unmounts.
+
+```svelte
+<script>
+	import { Modal } from 'obsidian-svelte-ui';
+
+	let { app } = $props();
+	let open = $state(true);
+</script>
+
+{#if open}
+	<Modal {app} title="My Modal" onClose={() => (open = false)}>
+		<p>Modal content goes here.</p>
+	</Modal>
+{/if}
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+**Props**
 
-## Building
+| Prop       | Type         | Default  | Description                                 |
+| ---------- | ------------ | -------- | ------------------------------------------- |
+| `app`      | `App`        | required | The Obsidian `App` instance                 |
+| `children` | `Snippet`    | —        | Content rendered inside the modal           |
+| `title`    | `string`     | —        | Modal title                                 |
+| `onClose`  | `() => void` | —        | Called when the modal is closed by the user |
 
-To build your library:
+---
 
-```sh
-npm pack
+## Attachments
+
+Svelte 5 [attachments](https://svelte.dev/docs/svelte/svelte-attachments) are functions that can be applied to elements using the `{@attach ...}` directive.
+
+### `setTooltip`
+
+Attaches an Obsidian tooltip to an element using Obsidian's `setTooltip` API.
+
+```svelte
+<script>
+	import { setTooltip } from 'obsidian-svelte-ui';
+</script>
+
+<button {@attach setTooltip('Save file', { placement: 'top' })}> Save </button>
 ```
 
-To create a production version of your showcase app:
+**Signature**
 
-```sh
-npm run build
+```ts
+function setTooltip(tooltip: string, options?: TooltipOptions): Attachment<HTMLElement>;
 ```
 
-You can preview the production build with `npm run preview`.
+The tooltip is reactive — if `tooltip` or `options` changes, it will be updated automatically.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+---
 
-## Publishing
+## `SvelteComponentChild`
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+A class for rendering a Svelte component inside an Obsidian view. Use this when registering a child component within a markdown post-processor, code block processor or some other case where you're attaching a Svelte component to the Obsidian UI.
 
-To publish your library to [npm](https://www.npmjs.com):
+```ts
+import { SvelteComponentChild } from 'obsidian-svelte-ui';
+import MyComponent from './MyComponent.svelte';
 
-```sh
-npm publish
+const child = new SvelteComponentChild(MyComponent, {
+	target: containerEl,
+	props: { message: 'Hello' }
+});
+
+view.addChild(child);
 ```
+
+Obsidian manages its lifecycle automatically via the `addChild` call. The Svelte component is mounted in `onload` and destroyed in `onunload`.
+
+**Constructor**
+
+Constructor signature matches the Svelte 5 `mount` API:
+
+```ts
+new SvelteComponentChild(component: Component<Props>, options: { target: HTMLElement; props: Props })
+```
+
+**Methods**
+
+| Method                                      | Description                                      |
+| ------------------------------------------- | ------------------------------------------------ |
+| `setProps(newProps: Props)`                 | Replaces all component props with a new set      |
+| `modifyProps(partialProps: Partial<Props>)` | Updates a subset of props, preserving all others |

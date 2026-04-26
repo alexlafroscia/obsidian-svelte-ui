@@ -4,12 +4,6 @@
 	}
 
 	let { containerEl = $bindable() }: Props = $props();
-
-	let sentinel = $state<HTMLElement>();
-
-	$effect(() => {
-		containerEl = sentinel?.parentElement;
-	});
 </script>
 
-<div style="display: none" bind:this={sentinel}></div>
+<div style="display: contents;" bind:this={containerEl}></div>

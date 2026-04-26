@@ -2,7 +2,7 @@
   "mode": "pre",
   "tag": "beta",
   "initialVersions": {
-    "obsidian-svelte-ui": "0.0.1"
+    "obsidian-svelte-ui": "1.0.0"
   },
   "changesets": []
 }

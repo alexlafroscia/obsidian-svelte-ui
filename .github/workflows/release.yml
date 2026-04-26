@@ -7,9 +7,6 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-env:
-  NPM_CONFIG_PROVENANCE: true
-
 jobs:
   release:
     name: Release
@@ -31,11 +28,10 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
-      - name: Ensure modern `npm` exists
-        run: |
-          npm --version
-          npm install -g npm
-          npm --version
+      # Default `npm` version is too old for
+      # https://nickradford.dev/blog/npm-trusted-publishing-and-github-actions#2-install-npm-1151-or-later
+      - name: Install `npm` with "provenance" support
+        run: npm install -g npm@11.5.1
 
       - run: pnpm install --frozen-lockfile
 

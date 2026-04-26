@@ -13,7 +13,8 @@
 		"format": "prettier --write .",
 		"test:unit": "vitest",
 		"test": "pnpm run test:unit -- --run",
-		"changeset": "changeset"
+		"changeset": "changeset",
+		"release": "pnpm run build && pnpm changeset publish"
 	},
 	"files": [
 		"dist",

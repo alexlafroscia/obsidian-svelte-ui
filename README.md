@@ -2,6 +2,8 @@
 
 Svelte 5 components and utilities for building [Obsidian](https://obsidian.md) plugins.
 
+Often times when building Obsidian plugins with Svelte, I find myself having to choose between the ease of building UI in Svelte and the desire to leverage the UI components provided by the Obsidian plugin API. This package aims to eliminate this choice by providing Svelte components that bridge this gap, allowing the Obsidian components to be rendered easily in Svelte. These aren't components built to look like the ones provided by Svelte; these are _the_ Obsidian components, exposed through a Svelte-friendly API.
+
 ## Installation
 
 ```sh
@@ -11,6 +13,9 @@ pnpm add obsidian-svelte-ui
 ```
 
 Requires `obsidian ^1.12.3` and `svelte ^5.0.0` as peer dependencies.
+
+Additionally, you will need to add the `svelte` condition to your Obsidian plugin's `esbuild` config file in order to allow the external Svelte components
+within this package to be correctly resolved.
 
 ## Uaage
 
@@ -43,6 +48,15 @@ Svelte 5 [attachments](https://svelte.dev/docs/svelte/svelte-attachments) are fu
 ### `SvelteComponentChild`
 
 A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](docs/SvelteComponentChild.md).
+
+## Example Plugins
+
+The following repositories my be useful as references for how this package can be used:
+
+- [`obsidian-mdbase`](https://github.com/alexlafroscia/obsidian-mdbase)
+  - [Rendering an `ExtraButton`](https://github.com/alexlafroscia/obsidian-mdbase/blob/c72737311df9e10d8a2b0bc9f2677dc86a41f87a/src/validation/FileValidationButton.svelte#L56-L71)
+  - [Managing a Svelte child view](https://github.com/alexlafroscia/obsidian-mdbase/blob/c72737311df9e10d8a2b0bc9f2677dc86a41f87a/src/validation/validationButton.ts)
+  - [`esbuild` config to resolve `.svelte` files](https://github.com/alexlafroscia/obsidian-mdbase/blob/567a6746bc2e23a44f4c62f42b19ac11b094c4ad/esbuild.config.mjs#L34)
 
 ## AI Disclaimer
 

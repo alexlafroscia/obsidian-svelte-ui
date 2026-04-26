@@ -4,5 +4,7 @@
   "initialVersions": {
     "obsidian-svelte-ui": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "sweet-parents-relax"
+  ]
 }

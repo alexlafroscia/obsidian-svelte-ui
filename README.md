@@ -12,7 +12,9 @@ pnpm add obsidian-svelte-ui
 
 Requires `obsidian ^1.12.3` and `svelte ^5.0.0` as peer dependencies.
 
-## Components
+## Uaage
+
+### Components
 
 | Component                                         | Description                              |
 | ------------------------------------------------- | ---------------------------------------- |
@@ -30,7 +32,7 @@ Requires `obsidian ^1.12.3` and `svelte ^5.0.0` as peer dependencies.
 | [`TextArea`](docs/components/TextArea.md)         | Wraps Obsidian's `TextAreaComponent`     |
 | [`Toggle`](docs/components/Toggle.md)             | Wraps Obsidian's `ToggleComponent`       |
 
-## Attachments
+### Attachments
 
 Svelte 5 [attachments](https://svelte.dev/docs/svelte/svelte-attachments) are functions that can be applied to elements using the `{@attach ...}` directive.
 
@@ -38,7 +40,7 @@ Svelte 5 [attachments](https://svelte.dev/docs/svelte/svelte-attachments) are fu
 | ----------------------------------------------- | ------------------------------------------ |
 | [`setTooltip`](docs/attachments/set-tooltip.md) | Attaches an Obsidian tooltip to an element |
 
-## `SvelteComponentChild`
+### `SvelteComponentChild`
 
 A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](docs/SvelteComponentChild.md).
 

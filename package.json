@@ -60,5 +60,8 @@
 	},
 	"keywords": [
 		"svelte"
-	]
+	],
+	"publishConfig": {
+		"provenance": true
+	}
 }

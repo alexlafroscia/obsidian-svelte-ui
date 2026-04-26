@@ -25,8 +25,15 @@
 		value?: number;
 	}
 
-	let { disabled = false, dynamicTooltip = false, instant, limits, onChange, value, ...rest }: Props =
-		$props();
+	let {
+		disabled = false,
+		dynamicTooltip = false,
+		instant,
+		limits,
+		onChange,
+		value,
+		...rest
+	}: Props = $props();
 
 	let containerEl: HTMLElement | null | undefined = $state();
 

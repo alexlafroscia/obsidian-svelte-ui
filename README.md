@@ -130,3 +130,7 @@ new SvelteComponentChild(component: Component<Props>, options: { target: HTMLEle
 | ------------------------------------------- | ------------------------------------------------ |
 | `setProps(newProps: Props)`                 | Replaces all component props with a new set      |
 | `modifyProps(partialProps: Partial<Props>)` | Updates a subset of props, preserving all others |
+
+## AI Disclaimer
+
+This package makes use of AI as part of it's development. I would _not_ call it vibe-coded, but Claude has been used to automate the process of generating the Svelte component wrappers once a good pattern for doing so was discovered.

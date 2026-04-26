@@ -2,6 +2,7 @@
 	import type { Snippet } from 'svelte';
 	import { ButtonComponent, type IconName } from 'obsidian';
 
+	import BindAttachments from '$lib/utils/BindAttachments.svelte';
 	import ExposeContainerElement from '$lib/utils/ExposeContainerElement.svelte';
 	import ExposeText from '$lib/utils/ExposeText.svelte';
 
@@ -29,7 +30,8 @@
 		disabled = false,
 		icon,
 		onClick,
-		warning = false
+		warning = false,
+		...rest
 	}: Props = $props();
 
 	let containerEl: HTMLElement | null | undefined = $state();
@@ -40,6 +42,7 @@
 			return new ButtonComponent(containerEl);
 		}
 	});
+	let buttonEl = $derived(buttonInstance?.buttonEl);
 
 	bindMethodsToBooleanProps(() => buttonInstance, {
 		setCta: [() => cta, (c) => c.removeCta()],
@@ -63,6 +66,7 @@
 </script>
 
 <ExposeContainerElement bind:containerEl />
+<BindAttachments node={buttonEl} {...rest} />
 
 {#if children}
 	<ExposeText bind:contents={name}>

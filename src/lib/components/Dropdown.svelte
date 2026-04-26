@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DropdownComponent } from 'obsidian';
 
+	import BindAttachments from '$lib/utils/BindAttachments.svelte';
 	import ExposeContainerElement from '$lib/utils/ExposeContainerElement.svelte';
 	import { bindMethodArgumentsToProps } from '$lib/utils/props-to-methods.svelte';
 
@@ -13,7 +14,7 @@
 		value?: string;
 	}
 
-	let { disabled = false, onChange, options, value }: Props = $props();
+	let { disabled = false, onChange, options, value, ...rest }: Props = $props();
 
 	let containerEl: HTMLElement | null | undefined = $state();
 
@@ -22,6 +23,7 @@
 			return new DropdownComponent(containerEl);
 		}
 	});
+	let selectEl = $derived(instance?.selectEl);
 
 	bindMethodArgumentsToProps(() => instance, {
 		addOptions: () => options,
@@ -32,3 +34,4 @@
 </script>
 
 <ExposeContainerElement bind:containerEl />
+<BindAttachments node={selectEl} {...rest} />

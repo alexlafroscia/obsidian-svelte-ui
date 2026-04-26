@@ -7,6 +7,7 @@ export { default as MomentFormat } from './components/MomentFormat.svelte';
 export { default as ProgressBar } from './components/ProgressBar.svelte';
 export { default as Search } from './components/Search.svelte';
 export { default as Secret } from './components/Secret.svelte';
+export { default as Slider } from './components/Slider.svelte';
 
 export { setTooltipAttachment as setTooltip } from './attachments/set-tooltip.svelte';
 

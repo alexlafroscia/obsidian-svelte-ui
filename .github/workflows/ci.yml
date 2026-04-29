@@ -53,6 +53,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install chromium-headless-shell
+        working-directory: obsidian-svelte-ui
 
       - run: pnpm test
         working-directory: obsidian-svelte-ui

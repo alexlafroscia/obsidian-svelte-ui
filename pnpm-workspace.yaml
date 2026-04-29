@@ -1,4 +1,5 @@
 packages:
+  - demo-plugin
   - obsidian-svelte-ui
 
 onlyBuiltDependencies:

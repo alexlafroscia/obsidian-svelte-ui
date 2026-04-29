@@ -7,14 +7,23 @@ settings:
 importers:
 
   .:
+    devDependencies:
+      '@changesets/cli':
+        specifier: ^2.31.0
+        version: 2.31.0(@types/node@25.6.0)
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.3
+      prettier-plugin-svelte:
+        specifier: ^3.5.1
+        version: 3.5.1(prettier@3.8.3)(svelte@5.55.5)
+
+  obsidian-svelte-ui:
     dependencies:
       svelte-imperative:
         specifier: ^4.0.0
         version: 4.0.0(svelte@5.55.5)
     devDependencies:
-      '@changesets/cli':
-        specifier: ^2.31.0
-        version: 2.31.0(@types/node@25.6.0)
       '@sveltejs/adapter-auto':
         specifier: ^7.0.1
         version: 7.0.1(@sveltejs/kit@2.58.0(@sveltejs/vite-plugin-svelte@7.0.0(svelte@5.55.5)(vite@8.0.10(@types/node@25.6.0)))(svelte@5.55.5)(typescript@6.0.3)(vite@8.0.10(@types/node@25.6.0)))
@@ -39,12 +48,6 @@ importers:
       playwright:
         specifier: ^1.59.1
         version: 1.59.1
-      prettier:
-        specifier: ^3.8.1
-        version: 3.8.3
-      prettier-plugin-svelte:
-        specifier: ^3.5.1
-        version: 3.5.1(prettier@3.8.3)(svelte@5.55.5)
       publint:
         specifier: ^0.3.18
         version: 0.3.18

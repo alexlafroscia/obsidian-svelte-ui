@@ -1,2 +1,5 @@
+packages:
+  - obsidian-svelte-ui
+
 onlyBuiltDependencies:
   - esbuild

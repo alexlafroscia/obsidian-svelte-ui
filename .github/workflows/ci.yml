@@ -21,6 +21,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm check
+        working-directory: obsidian-svelte-ui
 
   lint:
     runs-on: ubuntu-latest
@@ -36,7 +37,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm check
+      - run: pnpm lint
 
   test:
     runs-on: ubuntu-latest
@@ -54,3 +55,4 @@ jobs:
       - run: pnpm exec playwright install chromium-headless-shell
 
       - run: pnpm test
+        working-directory: obsidian-svelte-ui

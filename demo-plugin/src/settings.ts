@@ -1,18 +1,18 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
-import MyPlugin from './main';
+import DemoObsidianSvelteUI from './main';
 
-export interface MyPluginSettings {
+export interface DemoSettings {
 	mySetting: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: DemoSettings = {
 	mySetting: 'default'
 };
 
-export class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+export class ObsidianSvelteuiSettingsTab extends PluginSettingTab {
+	plugin: DemoObsidianSvelteUI;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: DemoObsidianSvelteUI) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}

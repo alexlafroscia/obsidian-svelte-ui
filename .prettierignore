@@ -9,5 +9,9 @@ bun.lockb
 .changeset/
 CHANGELOG.md
 
+# Build Output
+.svelte-kit/
+dist/
+
 # Miscellaneous
-/static/
+obsidian-svelte-ui/static/

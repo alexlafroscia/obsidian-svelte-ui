@@ -21,33 +21,33 @@ within this package to be correctly resolved.
 
 ### Components
 
-| Component                                         | Description                              |
-| ------------------------------------------------- | ---------------------------------------- |
-| [`Button`](docs/components/Button.md)             | Wraps Obsidian's `ButtonComponent`       |
-| [`Color`](docs/components/Color.md)               | Wraps Obsidian's `ColorComponent`        |
-| [`Dropdown`](docs/components/Dropdown.md)         | Wraps Obsidian's `DropdownComponent`     |
-| [`ExtraButton`](docs/components/ExtraButton.md)   | Wraps Obsidian's `ExtraButtonComponent`  |
-| [`Modal`](docs/components/Modal.md)               | Wraps Obsidian's `Modal`                 |
-| [`MomentFormat`](docs/components/MomentFormat.md) | Wraps Obsidian's `MomentFormatComponent` |
-| [`ProgressBar`](docs/components/ProgressBar.md)   | Wraps Obsidian's `ProgressBarComponent`  |
-| [`Search`](docs/components/Search.md)             | Wraps Obsidian's `SearchComponent`       |
-| [`Secret`](docs/components/Secret.md)             | Wraps Obsidian's `SecretComponent`       |
-| [`Slider`](docs/components/Slider.md)             | Wraps Obsidian's `SliderComponent`       |
-| [`Text`](docs/components/Text.md)                 | Wraps Obsidian's `TextComponent`         |
-| [`TextArea`](docs/components/TextArea.md)         | Wraps Obsidian's `TextAreaComponent`     |
-| [`Toggle`](docs/components/Toggle.md)             | Wraps Obsidian's `ToggleComponent`       |
+| Component                                                            | Description                              |
+| -------------------------------------------------------------------- | ---------------------------------------- |
+| [`Button`](obsidian-svelte-ui/docs/components/Button.md)             | Wraps Obsidian's `ButtonComponent`       |
+| [`Color`](obsidian-svelte-ui/docs/components/Color.md)               | Wraps Obsidian's `ColorComponent`        |
+| [`Dropdown`](obsidian-svelte-ui/docs/components/Dropdown.md)         | Wraps Obsidian's `DropdownComponent`     |
+| [`ExtraButton`](obsidian-svelte-ui/docs/components/ExtraButton.md)   | Wraps Obsidian's `ExtraButtonComponent`  |
+| [`Modal`](obsidian-svelte-ui/docs/components/Modal.md)               | Wraps Obsidian's `Modal`                 |
+| [`MomentFormat`](obsidian-svelte-ui/docs/components/MomentFormat.md) | Wraps Obsidian's `MomentFormatComponent` |
+| [`ProgressBar`](obsidian-svelte-ui/docs/components/ProgressBar.md)   | Wraps Obsidian's `ProgressBarComponent`  |
+| [`Search`](obsidian-svelte-ui/docs/components/Search.md)             | Wraps Obsidian's `SearchComponent`       |
+| [`Secret`](obsidian-svelte-ui/docs/components/Secret.md)             | Wraps Obsidian's `SecretComponent`       |
+| [`Slider`](obsidian-svelte-ui/docs/components/Slider.md)             | Wraps Obsidian's `SliderComponent`       |
+| [`Text`](obsidian-svelte-ui/docs/components/Text.md)                 | Wraps Obsidian's `TextComponent`         |
+| [`TextArea`](obsidian-svelte-ui/docs/components/TextArea.md)         | Wraps Obsidian's `TextAreaComponent`     |
+| [`Toggle`](obsidian-svelte-ui/docs/components/Toggle.md)             | Wraps Obsidian's `ToggleComponent`       |
 
 ### Attachments
 
-Svelte 5 [attachments](https://svelte.dev/docs/svelte/svelte-attachments) are functions that can be applied to elements using the `{@attach ...}` directive.
+Svelte 5 [attachments](https://svelte.dev/obsidian-svelte-ui/docs/svelte/svelte-attachments) are functions that can be applied to elements using the `{@attach ...}` directive.
 
-| Attachment                                      | Description                                |
-| ----------------------------------------------- | ------------------------------------------ |
-| [`setTooltip`](docs/attachments/set-tooltip.md) | Attaches an Obsidian tooltip to an element |
+| Attachment                                                         | Description                                |
+| ------------------------------------------------------------------ | ------------------------------------------ |
+| [`setTooltip`](obsidian-svelte-ui/docs/attachments/set-tooltip.md) | Attaches an Obsidian tooltip to an element |
 
 ### `SvelteComponentChild`
 
-A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](docs/SvelteComponentChild.md).
+A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](obsidian-svelte-ui/docs/SvelteComponentChild.md).
 
 ## Example Plugins
 

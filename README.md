@@ -45,9 +45,9 @@ Svelte 5 [attachments](https://svelte.dev/obsidian-svelte-ui/docs/svelte/svelte-
 | ------------------------------------------------------------------ | ------------------------------------------ |
 | [`setTooltip`](obsidian-svelte-ui/docs/attachments/set-tooltip.md) | Attaches an Obsidian tooltip to an element |
 
-### `SvelteComponentChild`
+### `SvelteComponent`
 
-A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](obsidian-svelte-ui/docs/SvelteComponentChild.md).
+A class for rendering a Svelte component inside an Obsidian view, compatible with Obsidian's child lifecycle. See the [full documentation](obsidian-svelte-ui/docs/SvelteComponent.md).
 
 ## Example Plugins
 

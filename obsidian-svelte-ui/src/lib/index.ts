@@ -14,4 +14,4 @@ export { default as Toggle } from './components/Toggle.svelte';
 
 export { setTooltipAttachment as setTooltip } from './attachments/set-tooltip.svelte';
 
-export { SvelteComponentChild } from './svelte-component-child';
+export { SvelteComponent } from './svelte-component';

@@ -1,4 +1,4 @@
-import { MarkdownRenderChild } from 'obsidian';
+import { Component as ObsidianComponent } from 'obsidian';
 import { ImperativeComponent } from 'svelte-imperative';
 import type { Component } from 'svelte';
 
@@ -7,14 +7,14 @@ interface Options<Props> {
 	target: HTMLElement;
 }
 
-export class SvelteComponentChild<Props extends Record<string, any>> extends MarkdownRenderChild {
+export class SvelteComponent<Props extends Record<string, any>> extends ObsidianComponent {
 	private component: Component<Props>;
 	private options: Options<Props>;
 
 	private renderedComponent: ImperativeComponent<Props> | undefined;
 
 	constructor(component: Component<Props>, options: Options<Props>) {
-		super(options.target);
+		super();
 
 		this.component = component;
 		this.options = options;

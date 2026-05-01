@@ -2,6 +2,7 @@ import esbuild from 'esbuild';
 import process from 'process';
 import { builtinModules } from 'node:module';
 import sveltePlugin from 'esbuild-svelte';
+import raw from 'esbuild-plugin-raw';
 
 import svelteConfig from './svelte.config.mjs';
 
@@ -35,7 +36,7 @@ const context = await esbuild.context({
 		'@lezer/lr',
 		...builtinModules
 	],
-	plugins: [sveltePlugin(svelteConfig)],
+	plugins: [sveltePlugin(svelteConfig), raw()],
 	format: 'cjs',
 	target: 'es2018',
 	logLevel: 'info',

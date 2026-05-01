@@ -4,4 +4,3 @@ export default {
 	compilerOptions: { css: 'injected' },
 	preprocess: sveltePreprocess()
 };
-e;

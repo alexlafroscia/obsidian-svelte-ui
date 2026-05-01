@@ -1,5 +1,5 @@
 import { Plugin, WorkspaceLeaf } from 'obsidian';
-import { DEFAULT_SETTINGS, DemoSettings, ObsidianSvelteuiSettingsTab } from './settings';
+import { DEFAULT_SETTINGS, ObsidianSvelteuiSettingsTab, type DemoSettings } from './settings';
 import { DemoObsidianSvelteUIComponentsView, VIEW_TYPE } from './view';
 
 export default class DemoObsidianSvelteUI extends Plugin {

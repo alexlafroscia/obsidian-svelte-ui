@@ -15,7 +15,7 @@ export class DemoObsidianSvelteUIComponentsView extends ItemView {
 	}
 
 	getDisplayText(): string {
-		return 'Svelte UI Components';
+		return 'Svelte UI components';
 	}
 
 	async onOpen(): Promise<void> {

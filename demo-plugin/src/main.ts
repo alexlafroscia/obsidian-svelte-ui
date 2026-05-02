@@ -30,7 +30,7 @@ export default class DemoObsidianSvelteUI extends Plugin {
 			await leaf.setViewState({ type: VIEW_TYPE, active: true });
 		}
 
-		workspace.revealLeaf(leaf);
+		await workspace.revealLeaf(leaf);
 	}
 
 	onunload() {}

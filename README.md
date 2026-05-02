@@ -53,6 +53,8 @@ A class for rendering a Svelte component inside an Obsidian view, compatible wit
 
 The following repositories my be useful as references for how this package can be used:
 
+- [`demo-plugin`](./demo-plugin/README.md)
+  - Provides an example for all of the behavior provided by `obsidian-svelte-ui`
 - [`obsidian-mdbase`](https://github.com/alexlafroscia/obsidian-mdbase)
   - [Rendering an `ExtraButton`](https://github.com/alexlafroscia/obsidian-mdbase/blob/c72737311df9e10d8a2b0bc9f2677dc86a41f87a/src/validation/FileValidationButton.svelte#L56-L71)
   - [Managing a Svelte child view](https://github.com/alexlafroscia/obsidian-mdbase/blob/c72737311df9e10d8a2b0bc9f2677dc86a41f87a/src/validation/validationButton.ts)

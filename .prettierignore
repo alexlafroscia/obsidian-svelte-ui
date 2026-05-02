@@ -14,5 +14,8 @@ CHANGELOG.md
 dist/
 demo-plugin/main.js
 
+# Demo Vault
+demo-vault/.obsidian/
+
 # Miscellaneous
 obsidian-svelte-ui/static/

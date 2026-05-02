@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
-	import { getTabController } from './tab-controller.svelte';
+	import { getTabController } from './Tabs.svelte';
 
 	const controller = getTabController();
 

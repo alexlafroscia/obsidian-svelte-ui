@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { App } from 'obsidian';
-	import { Tabs, Tab } from 'obsidian-svelte-ui';
 
 	import ComponentShowcase from './ComponentShowcase.svelte';
+	import Tabs from './tabs/Tabs.svelte';
+	import Tab from './tabs/Tab.svelte';
 
 	import ButtonDemo from './demos/ButtonDemo.svelte';
 	import ButtonDemoSource from './demos/ButtonDemo.svelte?raw';

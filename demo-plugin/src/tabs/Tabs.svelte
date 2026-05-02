@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { Button } from 'obsidian-svelte-ui';
 
-	import Button from '$lib/components/Button.svelte';
 	import { createTabController } from './tab-controller.svelte';
 
 	const controller = createTabController();

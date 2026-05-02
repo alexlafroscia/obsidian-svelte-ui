@@ -1,8 +1,13 @@
 import { createContext } from 'svelte';
 
 class TabController {
-	activeTabIndex = $state(0);
-	tabs = $state<string[]>([]);
+	activeTabIndex: number;
+	tabs: string[];
+
+	constructor() {
+		this.activeTabIndex = $state(0);
+		this.tabs = $state([]);
+	}
 
 	register(tab: string) {
 		this.tabs = [...this.tabs, tab];

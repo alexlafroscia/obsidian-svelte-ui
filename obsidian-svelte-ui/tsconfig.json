@@ -10,6 +10,8 @@
 		"sourceMap": true,
 		"strict": true,
 		"module": "preserve",
-		"moduleResolution": "bundler"
+		"moduleResolution": "bundler",
+		"declaration": true,
+		"declarationMap": true
 	}
 }

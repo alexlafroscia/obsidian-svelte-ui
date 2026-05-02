@@ -1,5 +1,9 @@
 packages:
+  - demo-plugin
   - obsidian-svelte-ui
 
 onlyBuiltDependencies:
   - esbuild
+
+catalog:
+  typescript: ^6.0.2

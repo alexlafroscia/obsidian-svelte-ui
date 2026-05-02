@@ -12,6 +12,10 @@ CHANGELOG.md
 # Build Output
 .svelte-kit/
 dist/
+demo-plugin/main.js
+
+# Demo Vault
+demo-vault/.obsidian/
 
 # Miscellaneous
 obsidian-svelte-ui/static/

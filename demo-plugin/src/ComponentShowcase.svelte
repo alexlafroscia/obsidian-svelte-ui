@@ -96,7 +96,8 @@
 
 	.stage {
 		display: flex;
-		align-items: center;
+		align-items: start;
+		flex-direction: column;
 		gap: 0.5rem;
 		flex-wrap: wrap;
 		padding: 0.5rem 0;

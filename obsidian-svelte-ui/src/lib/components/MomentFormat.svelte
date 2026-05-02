@@ -12,10 +12,19 @@
 		disabled?: boolean;
 		onChange?: OnChangeCallback;
 		placeholder?: string;
+		sampleEl?: HTMLElement;
 		value?: string;
 	}
 
-	let { defaultFormat, disabled = false, onChange, placeholder, value, ...rest }: Props = $props();
+	let {
+		defaultFormat,
+		disabled = false,
+		onChange,
+		placeholder,
+		sampleEl,
+		value,
+		...rest
+	}: Props = $props();
 
 	let containerEl: HTMLElement | null | undefined = $state();
 
@@ -31,6 +40,7 @@
 		setDefaultFormat: () => defaultFormat,
 		setDisabled: () => disabled,
 		setPlaceholder: () => placeholder,
+		setSampleEl: () => sampleEl,
 		setValue: () => value
 	});
 </script>

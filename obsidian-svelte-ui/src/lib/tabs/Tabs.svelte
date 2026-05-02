@@ -33,6 +33,7 @@
 	.tabs {
 		display: flex;
 		padding-left: 0;
+		overflow-x: auto;
 	}
 
 	.tab {

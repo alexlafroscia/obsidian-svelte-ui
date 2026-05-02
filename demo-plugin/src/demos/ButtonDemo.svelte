@@ -7,7 +7,9 @@
 <Button
 	onClick={() => {
 		clickCount++;
-	}}>Click me</Button
+	}}
 >
+	Click me
+</Button>
 
 <p>Clicked: {clickCount} times</p>

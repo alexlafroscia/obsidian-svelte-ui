@@ -22,7 +22,7 @@ export class DemoObsidianSvelteUIComponentsView extends ItemView {
 		this.addChild(
 			new SvelteComponent(ComponentDemo, {
 				target: this.contentEl,
-				props: {}
+				props: { app: this.app }
 			})
 		);
 	}

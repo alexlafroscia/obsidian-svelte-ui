@@ -21,9 +21,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm check
-        working-directory: obsidian-svelte-ui
-      - run: pnpm check
-        working-directory: demo-plugin
 
   lint:
     runs-on: ubuntu-latest

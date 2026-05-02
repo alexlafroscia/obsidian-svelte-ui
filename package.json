@@ -3,6 +3,7 @@
 	"private": true,
 	"scripts": {
 		"build": "turbo run build",
+		"check": "turbo run check",
 		"dev": "turbo watch build",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",

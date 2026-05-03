@@ -1,5 +1,13 @@
 # obsidian-svelte-ui
 
+## 2.1.0
+
+### Minor Changes
+
+- c0c616b: add default generic type for `SvelteComponent`
+- 38d6e1a: add README when publishing
+- c0c616b: Add `Setting` and `SettingGroup` components
+
 ## 2.0.0
 
 ### Major Changes

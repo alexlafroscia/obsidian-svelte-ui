@@ -16,6 +16,10 @@ To browse this within `demo-vault`, run the command `"Demo Obsidian Svelte UI: O
 
 [`view.ts`](./src/view.ts) demonstrates populating an Obsidian view by mounting a Svelte component.
 
+### Example Settings Implementation
+
+[`settings.ts`](./src/settings.ts) demonstrates populating an Obsidian Settings panel by mounting a Svelte component.
+
 ## Running this Locally
 
 1. Clone this repo

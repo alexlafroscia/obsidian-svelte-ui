@@ -1,5 +1,8 @@
-import { App, PluginSettingTab, Setting } from 'obsidian';
-import DemoObsidianSvelteUI from './main';
+import { App, PluginSettingTab } from 'obsidian';
+import { SvelteComponent } from 'obsidian-svelte-ui';
+
+import type DemoObsidianSvelteUI from './main';
+import Settings from './Settings.svelte';
 
 export interface DemoSettings {
 	mySetting: string;
@@ -12,27 +15,25 @@ export const DEFAULT_SETTINGS: DemoSettings = {
 export class ObsidianSvelteuiSettingsTab extends PluginSettingTab {
 	plugin: DemoObsidianSvelteUI;
 
+	private view?: SvelteComponent;
+
 	constructor(app: App, plugin: DemoObsidianSvelteUI) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
 
 	display(): void {
-		const { containerEl } = this;
+		this.view = new SvelteComponent(Settings, {
+			target: this.containerEl,
+			props: {
+				plugin: this.plugin
+			}
+		});
+		this.view.load();
+	}
 
-		containerEl.empty();
-
-		new Setting(containerEl)
-			.setName('Settings #1')
-			.setDesc("It's a secret")
-			.addText((text) =>
-				text
-					.setPlaceholder('Enter your secret')
-					.setValue(this.plugin.settings.mySetting)
-					.onChange(async (value) => {
-						this.plugin.settings.mySetting = value;
-						await this.plugin.saveSettings();
-					})
-			);
+	hide(): void {
+		this.view?.unload();
+		this.view = undefined;
 	}
 }

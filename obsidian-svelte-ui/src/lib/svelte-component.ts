@@ -7,7 +7,9 @@ interface Options<Props> {
 	target: HTMLElement;
 }
 
-export class SvelteComponent<Props extends Record<string, any>> extends ObsidianComponent {
+export class SvelteComponent<
+	Props extends Record<string, any> = Record<string, any>
+> extends ObsidianComponent {
 	private component: Component<Props>;
 	private options: Options<Props>;
 

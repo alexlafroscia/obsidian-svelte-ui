@@ -7,6 +7,8 @@ export { default as MomentFormat } from './components/MomentFormat.svelte';
 export { default as ProgressBar } from './components/ProgressBar.svelte';
 export { default as Search } from './components/Search.svelte';
 export { default as Secret } from './components/Secret.svelte';
+export { default as Setting } from './components/Setting.svelte';
+export { default as SettingGroup } from './components/SettingGroup.svelte';
 export { default as Slider } from './components/Slider.svelte';
 export { default as Text } from './components/Text.svelte';
 export { default as TextArea } from './components/TextArea.svelte';

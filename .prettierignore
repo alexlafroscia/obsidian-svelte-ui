@@ -13,8 +13,10 @@ CHANGELOG.md
 .svelte-kit/
 dist/
 demo-plugin/main.js
+obsidian-svelte-ui/README.md
 
 # Demo Vault
+demo-plugin/data.json
 demo-vault/.obsidian/
 
 # Miscellaneous

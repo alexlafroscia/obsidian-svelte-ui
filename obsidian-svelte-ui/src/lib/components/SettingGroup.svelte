@@ -96,3 +96,12 @@
 </script>
 
 <ExposeContainerElement bind:containerEl />
+
+<style>
+	/* Emulate setting group spacing, accounting for mount point elements */
+	:global(.obsidian-svelte-ui-mount-point:has(.setting-group))
+		+ :global(.obsidian-svelte-ui-mount-point)
+		:global(.setting-group) {
+		margin-top: var(--size-4-6);
+	}
+</style>

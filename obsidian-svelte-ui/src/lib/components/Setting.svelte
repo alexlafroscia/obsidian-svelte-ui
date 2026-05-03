@@ -1,11 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { Setting as ObsidianSetting, type TooltipOptions } from 'obsidian';
-	import { ImperativeComponent } from 'svelte-imperative';
 
 	import BindAttachments from '$lib/utils/BindAttachments.svelte';
 	import ExposeContainerElement from '$lib/utils/ExposeContainerElement.svelte';
-	import RenderSnippet from '$lib/utils/RenderSnippet.svelte';
+	import { bindSnippet } from '$lib/utils/RenderSnippet.svelte';
 	import {
 		bindMethodArgumentsToProps,
 		bindMethodsToBooleanProps,
@@ -65,11 +64,10 @@
 		}
 	);
 
-	$effect(() => {
-		if (!controlEl || !children) return;
-		const ic = new ImperativeComponent(controlEl, RenderSnippet, { snippet: children });
-		return () => ic.destroy();
-	});
+	bindSnippet(
+		() => controlEl,
+		() => children
+	);
 </script>
 
 <ExposeContainerElement bind:containerEl />

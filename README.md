@@ -32,6 +32,8 @@ within this package to be correctly resolved.
 | [`ProgressBar`](obsidian-svelte-ui/docs/components/ProgressBar.md)   | Wraps Obsidian's `ProgressBarComponent`  |
 | [`Search`](obsidian-svelte-ui/docs/components/Search.md)             | Wraps Obsidian's `SearchComponent`       |
 | [`Secret`](obsidian-svelte-ui/docs/components/Secret.md)             | Wraps Obsidian's `SecretComponent`       |
+| [`Setting`](obsidian-svelte-ui/docs/components/Setting.md)           | Wraps Obsidian's `Setting`               |
+| [`SettingGroup`](obsidian-svelte-ui/docs/components/SettingGroup.md) | Wraps Obsidian's `SettingGroup`          |
 | [`Slider`](obsidian-svelte-ui/docs/components/Slider.md)             | Wraps Obsidian's `SliderComponent`       |
 | [`Text`](obsidian-svelte-ui/docs/components/Text.md)                 | Wraps Obsidian's `TextComponent`         |
 | [`TextArea`](obsidian-svelte-ui/docs/components/TextArea.md)         | Wraps Obsidian's `TextAreaComponent`     |

@@ -98,9 +98,7 @@
 	</Tab>
 
 	<Tab title="Text">
-		<ComponentShowcase source={TextDemoSource}>
-			<TextDemo />
-		</ComponentShowcase>
+		<TextDemo {app} />
 	</Tab>
 
 	<Tab title="TextArea">

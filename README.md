@@ -43,9 +43,10 @@ within this package to be correctly resolved.
 
 Svelte 5 [attachments](https://svelte.dev/obsidian-svelte-ui/docs/svelte/svelte-attachments) are functions that can be applied to elements using the `{@attach ...}` directive.
 
-| Attachment                                                         | Description                                |
-| ------------------------------------------------------------------ | ------------------------------------------ |
-| [`setTooltip`](obsidian-svelte-ui/docs/attachments/set-tooltip.md) | Attaches an Obsidian tooltip to an element |
+| Attachment                                                             | Description                                                         |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [`setTooltip`](obsidian-svelte-ui/docs/attachments/set-tooltip.md)     | Attaches an Obsidian tooltip to an element                          |
+| [`inputSuggest`](obsidian-svelte-ui/docs/attachments/input-suggest.md) | Wires up an `AbstractInputSuggest` instance to a text input element |
 
 ### `SvelteComponent`
 

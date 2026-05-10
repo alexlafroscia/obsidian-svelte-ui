@@ -1,15 +1,32 @@
 <script lang="ts">
-	import { Text } from 'obsidian-svelte-ui';
+	import type { App } from 'obsidian';
 
-	let textValue = $state('Initial Value');
+	import ComponentShowcase from '../ComponentShowcase.svelte';
+	import Tabs from '../tabs/Tabs.svelte';
+	import Tab from '../tabs/Tab.svelte';
+
+	import BasicTextDemo from './Text/BasicTextDemo.svelte';
+	import BasicTextDemoSource from './Text/BasicTextDemo.svelte?raw';
+	import TextInputSuggestDemo from './Text/TextInputSuggestDemo.svelte';
+	import TextInputSuggestDemoSource from './Text/TextInputSuggestDemo.svelte?raw';
+
+	interface Props {
+		app: App;
+	}
+
+	let { app }: Props = $props();
 </script>
 
-<Text
-	value={textValue}
-	placeholder="Enter a value"
-	onChange={(value) => {
-		textValue = value;
-	}}
-/>
+<Tabs>
+	<Tab title="Basic Text">
+		<ComponentShowcase source={BasicTextDemoSource}>
+			<BasicTextDemo />
+		</ComponentShowcase>
+	</Tab>
 
-<p>Value: {textValue}</p>
+	<Tab title="Input Suggest">
+		<ComponentShowcase source={TextInputSuggestDemoSource}>
+			<TextInputSuggestDemo {app} />
+		</ComponentShowcase>
+	</Tab>
+</Tabs>

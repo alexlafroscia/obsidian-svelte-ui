@@ -14,6 +14,10 @@ export { default as Text } from './components/Text.svelte';
 export { default as TextArea } from './components/TextArea.svelte';
 export { default as Toggle } from './components/Toggle.svelte';
 
+export {
+	SvelteInputSuggest,
+	inputSuggestAttachment as inputSuggest
+} from './attachments/input-suggest.svelte';
 export { setTooltipAttachment as setTooltip } from './attachments/set-tooltip.svelte';
 
 export { SvelteComponent } from './svelte-component';

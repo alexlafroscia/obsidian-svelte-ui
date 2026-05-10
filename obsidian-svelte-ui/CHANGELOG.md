@@ -1,5 +1,11 @@
 # obsidian-svelte-ui
 
+## 2.2.0
+
+### Minor Changes
+
+- 91a9bbb: add `inputSuggest` attachment
+
 ## 2.1.0
 
 ### Minor Changes

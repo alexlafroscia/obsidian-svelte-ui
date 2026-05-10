@@ -60,13 +60,7 @@
 
 	.body {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
-
-	@media (max-width: 640px) {
-		.body {
-			grid-template-columns: 1fr;
-		}
+		grid-template-columns: 1fr;
 	}
 
 	.preview {

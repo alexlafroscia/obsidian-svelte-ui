@@ -6,7 +6,6 @@
 	import Tab from './tabs/Tab.svelte';
 
 	import ButtonDemo from './demos/ButtonDemo.svelte';
-	import ButtonDemoSource from './demos/ButtonDemo.svelte?raw';
 	import ColorDemo from './demos/ColorDemo.svelte';
 	import ColorDemoSource from './demos/ColorDemo.svelte?raw';
 	import DropdownDemo from './demos/DropdownDemo.svelte';
@@ -39,11 +38,9 @@
 	let { app }: Props = $props();
 </script>
 
-<Tabs>
+<Tabs vertical>
 	<Tab title="Button">
-		<ComponentShowcase source={ButtonDemoSource}>
-			<ButtonDemo />
-		</ComponentShowcase>
+		<ButtonDemo />
 	</Tab>
 
 	<Tab title="Color">

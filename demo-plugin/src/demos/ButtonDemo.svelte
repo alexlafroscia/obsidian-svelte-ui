@@ -1,15 +1,24 @@
 <script lang="ts">
-	import { Button } from 'obsidian-svelte-ui';
+	import ComponentShowcase from '../ComponentShowcase.svelte';
+	import Tabs from '../tabs/Tabs.svelte';
+	import Tab from '../tabs/Tab.svelte';
 
-	let clickCount = $state(0);
+	import BasicButtonDemo from './Button/BasicButtonDemo.svelte';
+	import BasicButtonDemoSource from './Button/BasicButtonDemo.svelte?raw';
+	import ButtonTooltipDemo from './Button/ButtonTooltipDemo.svelte';
+	import ButtonTooltipDemoSource from './Button/ButtonTooltipDemo.svelte?raw';
 </script>
 
-<Button
-	onClick={() => {
-		clickCount++;
-	}}
->
-	Click me
-</Button>
+<Tabs>
+	<Tab title="Basic Button">
+		<ComponentShowcase source={BasicButtonDemoSource}>
+			<BasicButtonDemo />
+		</ComponentShowcase>
+	</Tab>
 
-<p>Clicked: {clickCount} times</p>
+	<Tab title="Tooltip">
+		<ComponentShowcase source={ButtonTooltipDemoSource}>
+			<ButtonTooltipDemo />
+		</ComponentShowcase>
+	</Tab>
+</Tabs>

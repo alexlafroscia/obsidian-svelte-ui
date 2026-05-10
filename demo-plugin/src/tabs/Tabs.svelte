@@ -43,49 +43,95 @@
 
 	interface Props {
 		children: Snippet;
+		vertical?: boolean;
 	}
 
-	let { children }: Props = $props();
+	let { children, vertical = false }: Props = $props();
+
+	let horizontal = $derived(!vertical);
 </script>
 
-<ul class="tabs">
-	{#each controller.tabs as tab, index}
-		<li class={['tab', { active: controller.isActive(tab) }]}>
-			<Button
-				onClick={() => {
-					controller.activeTabIndex = index;
-				}}
-			>
-				{tab}
-			</Button>
-		</li>
-	{/each}
-</ul>
+<div class="container">
+	<ul class={['tabs', { horizontal, vertical }]}>
+		{#each controller.tabs as tab, index}
+			<li class={['tab', { active: controller.isActive(tab) }]}>
+				<Button
+					onClick={() => {
+						controller.activeTabIndex = index;
+					}}
+				>
+					{tab}
+				</Button>
+			</li>
+		{/each}
+	</ul>
 
-{@render children()}
+	<div class="wrapper">
+		{@render children()}
+	</div>
+</div>
 
 <style>
+	.container {
+		display: flex;
+		flex-direction: column;
+
+		&:has(> .vertical) {
+			flex-direction: unset;
+		}
+	}
+
 	.tabs {
 		display: flex;
 		padding-left: 0;
 		overflow-x: auto;
+
+		&.vertical {
+			align-items: stretch;
+			flex-direction: column;
+			flex-shrink: 0;
+			margin-inline-end: 1em;
+		}
+
+		&.horizontal {
+			align-items: start;
+		}
 	}
 
 	.tab {
 		list-style-type: none;
+
+		:global(button) {
+			justify-content: start;
+			width: 100%;
+		}
 	}
 
 	.tab.active :global(button) {
 		background-color: var(--interactive-accent);
 	}
 
-	.tab:not(:first-child) :global(button) {
+	.horizontal .tab:not(:first-child) :global(button) {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 
-	.tab:not(:last-child) :global(button) {
+	.horizontal .tab:not(:last-child) :global(button) {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
+	}
+
+	.vertical .tab:not(:first-child) :global(button) {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	.vertical .tab:not(:last-child) :global(button) {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.wrapper {
+		flex-grow: 1;
 	}
 </style>
